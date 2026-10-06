@@ -1,0 +1,39 @@
+# --- Milestone 1: Audio Processing & Transcription ---
+streamlit>=1.32.0
+pandas>=2.0.0            # dataframe styling for the Action Items table
+openai-whisper>=20231117
+jiwer>=3.0.0
+torch>=2.0.0
+
+# --- Milestone 2: Summarization & Action Extraction ---
+# Default LLM provider is Gemini - free tier, no Anthropic key needed.
+# Set GEMINI_API_KEY (get one free at https://aistudio.google.com/apikey),
+# either as a real environment variable or in a local .env file (see
+# .env.example) - python-dotenv loads .env automatically on startup.
+python-dotenv>=1.0.0
+google-genai>=0.3.0
+anthropic>=0.34.0        # optional alternate provider (set ANTHROPIC_API_KEY env var)
+openai>=1.30.0           # optional alternate provider (set OPENAI_API_KEY env var)
+fastapi>=0.110.0
+uvicorn>=0.29.0
+python-multipart>=0.0.9  # required by FastAPI for file uploads
+# No package is required for the "local" provider / automatic fallback -
+# local_extraction.py is pure Python standard library (re, collections).
+
+# --- Milestone 3: Meeting Knowledge Repository, Semantic Search & RAG ---
+# Embeddings default to OpenAI (text-embedding-3-small, reuses the `openai`
+# package and OPENAI_API_KEY/EMBEDDING_API_KEY above); vector storage
+# defaults to ChromaDB (local, no server to run). If chromadb isn't
+# installed, or no embedding API key is set, both fall back automatically
+# to a zero-dependency local implementation - Milestone 3 never hard-fails
+# just because an optional dependency is missing.
+chromadb>=0.5.0
+
+# --- Milestone 4: Dashboard, Integrations & Deployment ---
+requests>=2.31.0         # dashboard -> API calls; Zoom / Google Drive integrations
+reportlab>=4.0.0         # PDF meeting reports
+httpx>=0.27.0            # required by FastAPI's TestClient (API tests)
+pypdf>=4.0.0             # tests read the generated PDFs back
+pytest>=8.0.0            # optional: `python -m pytest` works too; `python run_tests.py` needs nothing extra
+# sentry-sdk>=2.0.0      # optional error monitoring - set SENTRY_DSN to enable
+

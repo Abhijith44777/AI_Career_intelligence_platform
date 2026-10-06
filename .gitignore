@@ -1,0 +1,21 @@
+# secrets & local state - NEVER commit these
+.env
+*.db
+*.db-wal
+*.db-shm
+chroma_db/
+logs/
+transcripts/
+vector_store.json
+
+# python
+__pycache__/
+*.pyc
+venv/
+.venv/
+.pytest_cache/
+
+# editors / OS
+.vscode/
+.idea/
+.DS_Store

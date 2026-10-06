@@ -1,0 +1,16 @@
+.env
+.git
+venv
+.venv
+__pycache__
+*.pyc
+*.db
+chroma_db
+logs
+transcripts
+test_*.py
+testutil.py
+run_tests.py
+integration_test_milestone3.py
+accuracy_test.py
+sample_data
